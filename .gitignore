@@ -1,160 +1,33 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+import requests , random 
 
-# C extensions
-*.so
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+url = "https://account.battle.net/creation/flow/creation-full/step/provide-credentials"
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+head= {
+    "Accept":"*/*",
+    "Accept-Encoding":"gzip, deflate, br",
+    "Accept-Language":"ar,en-US;q=0.9,en;q=0.8",
+    "Content-Length":"383",
+    "Content-Type":"multipart/form-data; boundary=----WebKitFormBoundaryWrGa6g5B77LApo72",
+    'Cookie':'flow-resume-context=%3Factor%3DPLAYER%26app%3Doauth%26callback-url%3Dhttps%3A%2F%2Foauth.battle.net%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fwww.blizzard.com%252Fauth%252Fbnet%252Fcallback%26scope%3Dlogout%2520account.licenses%2520email%2520name%2520private_flags%2520primary-address%2520account.full%2520reference.basic%26client_id%3D3d87a4f120754e15840548b68d9ea4db%26client-environment%3DSTANDALONE_BROWSER%26hostingApp%3Doauth%26continuation-type%3DRETURN_TO_REFERRER%26flowTrackingId%3D01f594c2-ab40-438c-8b8a-1941770796b1%26theme%3Dblizzard%26bdp%3D42dcc538f63d3b6cb6ff476bc802901af2e6399619b1477fa56df1f8d3a93e40; SESSION=MTczOWMwMmEtNDVjZi00Yjc5LTkyOGMtODA2YzFhMzYxZTdj; login.cookies=1; bnetVisitorId=1ffac2d3-5361-4e8c-8c60-1f9ce85ef26b; 1ffac2d3-5361-4e8c-8c60-1f9ce85ef26b.identity-aa-test.variant=b; web.id=EU-de996f86-bc90-4327-95ad-6cd7e4e69896; _gid=GA1.2.1055733290.1708242368; _gat_bnetgtm=1; _ga_VYKNV7C0S3=GS1.1.1708242367.1.1.1708242381.46.0.0; _ga=GA1.1.826849228.1708242368; _gali=flow-form-submit-btn',
+    'Dnt':'1',
+    'Origin':'https://account.battle.net',
+    'Referer':'https://account.battle.net/creation/flow/creation-full',
+    'Sec-Ch-Ua':'"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
+    'Sec-Ch-Ua-Mobile':'?0',
+    'Sec-Ch-Ua-Platform':"Windows",
+    'Sec-Fetch-Dest':'empty',
+    'Sec-Fetch-Mode':'cors',
+    'Sec-Fetch-Site':'same-origin',
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+    "X-Flow-Fragment":"true",
+}
+data= {
+    '_csrf': '77e6f0ee-3ea1-467c-abd8-2b978df01357',
+    "email": "xr34he4dfc@hotmail.com"}
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+r =requests.post(url=url, headers=head, data=data)
 
-# Translations
-*.mo
-*.pot
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-.pybuilder/
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/#use-with-ide
-.pdm.toml
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+print(r)
